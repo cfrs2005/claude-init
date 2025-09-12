@@ -241,39 +241,43 @@ EOF
   },
 EOF
     
-    # MCP 服务器配置（在顶层，与 hooks 并列）
+    # 结束整个配置文件（MCP 服务器已移至项目级配置）
     cat >> "$config_file" << 'EOF'
-  "mcpServers": {
-EOF
-    
-    local first_server=true
-    if [ "$INSTALL_CONTEXT7" = "y" ]; then
-        cat >> "$config_file" << 'EOF'
-    "context7": {
-      "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_CONTEXT7_API_KEY"]
-    }
-EOF
-        first_server=false
-    fi
-    
-    if [ "$INSTALL_GEMINI" = "y" ]; then
-        [ "$first_server" = false ] && echo "," >> "$config_file"
-        cat >> "$config_file" << 'EOF'
-    "gemini": {
-      "command": "npx",
-      "args": ["-y", "gemini-mcp", "--api-key", "YOUR_GEMINI_API_KEY"]
-    }
-EOF
-    fi
-    
-    # 结束 mcpServers 和整个配置文件
-    cat >> "$config_file" << 'EOF'
-  }
 }
 EOF
     
     print_color "$GREEN" "✅ 配置已生成：$config_file"
+}
+
+# 安装 MCP 服务器（使用新的项目级安装方法）
+install_mcp_servers() {
+    if [ "$INSTALL_CONTEXT7" = "y" ] || [ "$INSTALL_GEMINI" = "y" ]; then
+        echo
+        print_color "$CYAN" "📡 正在安装 MCP 服务器（项目级）..."
+        
+        # 切换到目标目录进行安装
+        cd "$TARGET_DIR"
+        
+        if [ "$INSTALL_CONTEXT7" = "y" ]; then
+            print_color "$YELLOW" "📚 正在安装 Context7 MCP 服务器..."
+            if claude mcp add context7 --scope project -- npx -y @upstash/context7-mcp --api-key YOUR_CONTEXT7_API_KEY 2>/dev/null; then
+                print_color "$GREEN" "  ✅ Context7 MCP 服务器已安装（项目级）"
+            else
+                print_color "$YELLOW" "  ⚠️  Context7 安装失败，请手动运行：claude mcp add context7 --scope project -- npx -y @upstash/context7-mcp --api-key YOUR_CONTEXT7_API_KEY"
+            fi
+        fi
+        
+        if [ "$INSTALL_GEMINI" = "y" ]; then
+            print_color "$YELLOW" "🧠 正在安装 Gemini MCP 服务器..."
+            if claude mcp add gemini --scope project -- npx -y gemini-mcp --api-key YOUR_GEMINI_API_KEY 2>/dev/null; then
+                print_color "$GREEN" "  ✅ Gemini MCP 服务器已安装（项目级）"
+            else
+                print_color "$YELLOW" "  ⚠️  Gemini 安装失败，请手动运行：claude mcp add gemini --scope project -- npx -y gemini-mcp --api-key YOUR_GEMINI_API_KEY"
+            fi
+        fi
+        
+        print_color "$GREEN" "✅ MCP 服务器配置完成！配置已保存到 .mcp.json"
+    fi
 }
 
 # 显示 MCP 服务器信息
@@ -282,7 +286,7 @@ display_mcp_info() {
         echo
         print_color "$BLUE" "=== MCP 服务器设置信息 ==="
         echo
-        print_color "$GREEN" "✅ MCP 服务器已配置到 settings.local.json 中！"
+        print_color "$GREEN" "✅ MCP 服务器已配置为项目级安装！"
         echo
         echo "配置的服务器："
         
@@ -303,11 +307,13 @@ display_mcp_info() {
         fi
         
         print_color "$CYAN" "💡 重要配置提醒："
-        echo "  • MCP 服务器已配置，但需要设置 API 密钥才能使用"
-        echo "  • 编辑 .claude/settings.local.json，将占位符替换为真实 API 密钥"
+        echo "  • MCP 服务器已安装为项目级配置"
+        echo "  • 配置文件：.mcp.json（在项目根目录）"
+        echo "  • 需要将占位符 API 密钥替换为真实密钥："
         echo "    - YOUR_CONTEXT7_API_KEY → 你的 Context7 API 密钥"  
         echo "    - YOUR_GEMINI_API_KEY → 你的 Gemini API 密钥"
         echo "  • API 密钥获取方式请参考各服务官方文档"
+        echo "  • 项目级配置仅在此项目目录中生效"
     fi
 }
 
@@ -389,6 +395,9 @@ main() {
     # 生成配置文件
     generate_settings
     
+    # 安装 MCP 服务器（新的项目级方法）
+    install_mcp_servers
+    
     # 显示 MCP 信息
     display_mcp_info
     
@@ -410,17 +419,21 @@ main() {
     echo "  $([ "$INSTALL_GEMINI" = "y" ] && echo 5 || echo 4). 运行 'claude' 开始你的中文开发之旅！"
     echo
     
-    # MCP 服务器安装指导
-    echo
-    print_color "$CYAN" "📡 推荐安装 MCP 服务器增强功能："
-    echo
-    print_color "$YELLOW" "Context7 - 获取最新库文档："
-    echo "  claude mcp add --transport http context7 https://mcp.context7.com/mcp"
-    echo
-    print_color "$YELLOW" "Gemini - 深度代码分析和咨询："
-    echo "  claude mcp add gemini-cli -- npx -y gemini-mcp-tool"
-    echo
-    print_color "$YELLOW" "💡 MCP 服务器让 Claude Code 功能更强大，强烈推荐安装！"
+    # MCP 服务器配置指导
+    if [ "$INSTALL_CONTEXT7" = "y" ] || [ "$INSTALL_GEMINI" = "y" ]; then
+        echo
+        print_color "$CYAN" "📡 MCP 服务器配置完成："
+        echo
+        print_color "$YELLOW" "下一步配置："
+        echo "  1. 编辑 .mcp.json 文件，将占位符 API 密钥替换为真实密钥"
+        echo "  2. Context7 API 密钥：https://context7.com/"
+        echo "  3. Gemini API 密钥：https://makersuite.google.com/app/apikey"
+        echo
+        print_color "$YELLOW" "验证 MCP 服务器状态："
+        echo "  claude mcp list"
+        echo
+        print_color "$YELLOW" "💡 MCP 服务器已配置为项目级，仅在此目录中生效！"
+    fi
 }
 
 # 运行主函数

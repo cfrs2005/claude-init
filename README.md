@@ -88,7 +88,10 @@ claude
 
 ### 2. 🎯 MCP 服务器功能
 
+安装过程中会自动配置以下 MCP 服务器（项目级）：
+
 #### 🧠 Gemini 深度咨询
+**自动安装：** `claude mcp add gemini --scope project`
 **触发方式：** 对 Claude 说"咨询 Gemini" 或 "请 Gemini 分析"
 **适用场景：**
 - 复杂架构设计问题
@@ -108,6 +111,7 @@ claude
 - 跨技术栈的经验分享
 
 #### 📚 Context7 文档查询  
+**自动安装：** `claude mcp add context7 --scope project`
 **触发方式：** 询问任何开源库的最新用法
 **适用场景：**
 - 学习新框架或库
@@ -122,6 +126,11 @@ claude
 - 获取最新官方文档
 - 提供实用代码示例
 - 解释最新特性和变化
+
+**配置说明：**
+- MCP 服务器已配置为项目级安装（.mcp.json）
+- 仅在当前项目目录中生效
+- 需要在 .mcp.json 中配置真实的 API 密钥
 
 ### 3. 💡 增强功能
 
@@ -166,8 +175,9 @@ claude docs-update           # 更新项目文档
 claude context-check         # 检查上下文完整性
 
 # MCP 管理
-claude mcp-status            # 查看 MCP 服务状态  
-claude mcp-config            # 配置 MCP 服务器
+claude mcp list              # 查看已安装的 MCP 服务器
+claude mcp remove <name>     # 移除指定的 MCP 服务器
+# 配置文件：.mcp.json（项目级配置）
 
 # Hook 管理
 claude hooks-test            # 测试 Hook 脚本

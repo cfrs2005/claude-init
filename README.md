@@ -57,13 +57,21 @@
 
 ## 🚀 快速开始
 
-### 一键安装
+### Linux/macOS 一键安装
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/cfrs2005/claude-init/main/install.sh | bash
 ```
 
+### Windows 一键安装
+
+```powershell
+irm https://raw.githubusercontent.com/cfrs2005/claude-init/main/install.ps1 | iex
+```
+
 ### 手动安装
+
+#### Linux/macOS
 
 ```bash
 # 克隆仓库
@@ -72,6 +80,17 @@ cd claude-init
 
 # 运行安装脚本
 ./setup.sh
+```
+
+#### Windows
+
+```powershell
+# 克隆仓库
+git clone https://github.com/cfrs2005/claude-init.git
+cd claude-init
+
+# 运行安装脚本
+./setup.ps1
 ```
 
 ## 📖 使用指南
@@ -221,6 +240,12 @@ cp your-sound.mp3 .claude/hooks/sounds/input.mp3
 
 🎉 **开始你的中文 AI 编程之旅吧！**
 
+**Linux/macOS:**
 ```bash
 curl -fsSL https://raw.githubusercontent.com/cfrs2005/claude-init/main/install.sh | bash
+```
+
+**Windows:**
+```powershell
+irm https://raw.githubusercontent.com/cfrs2005/claude-init/main/install.ps1 | iex
 ```

@@ -54,34 +54,148 @@
 
 ## 🚀 快速开始
 
-### 一键安装
+### 📋 系统要求
 
+**在开始之前，请确保已安装：**
+
+1. **Git** - [下载地址](https://git-scm.com/downloads)
+   - Windows 用户需要先安装 Git 才能使用 Git Bash
+   - 安装时选择 "Use Git and optional Unix tools from the Command Prompt"
+
+2. **Claude Code** - [官方安装指南](https://github.com/anthropics/claude-code)
+   - 确保可以在命令行中运行 `claude` 命令
+
+### 💻 Windows 用户安装指南
+
+#### 方法一：一键安装（推荐）
+
+1. **打开 Git Bash** （不是CMD或PowerShell）
+   - 在桌面右键 → Git Bash Here
+   - 或从开始菜单打开 Git Bash
+
+2. **运行安装命令：**
+   ```bash
+   curl -fsSL https://raw.githubusercontent.com/cfrs2005/claude-init/main/install.sh | bash
+   ```
+
+#### 方法二：手动安装
+
+1. **打开 Git Bash**
+
+2. **克隆仓库：**
+   ```bash
+   git clone https://github.com/cfrs2005/claude-init.git
+   cd claude-init
+   ```
+
+3. **运行安装脚本：**
+   ```bash
+   ./setup.sh
+   ```
+
+### 🍎 macOS / 🐧 Linux 用户安装
+
+#### 一键安装
 ```bash
 curl -fsSL https://raw.githubusercontent.com/cfrs2005/claude-init/main/install.sh | bash
 ```
 
-### 手动安装
-
+#### 手动安装
 ```bash
 # 克隆仓库
 git clone https://github.com/cfrs2005/claude-init.git
 cd claude-init
 
 # 运行安装脚本
+chmod +x setup.sh
 ./setup.sh
 ```
 
 ## 📖 使用指南
 
-### 1. 开始使用
+### 🎯 这个项目是做什么的？
 
-安装完成后，在任意项目中启动 Claude Code：
+Claude Code 中文开发套件是一个**增强工具包**，它：
+
+- **不是 Claude Code 的替代品** - 而是让 Claude Code 变得更强大
+- **提供中文化界面** - 让你可以用中文和 AI 对话
+- **添加智能功能** - 如自动文档管理、代码审查助手等
+- **集成外部服务** - 连接 Gemini AI、Context7 文档库等
+
+### 🚀 如何开始使用
+
+#### 第一步：安装完成后的检查
+
+安装完成后，你会看到这些新增文件：
+- `CLAUDE.md` - AI 上下文配置文件
+- `docs/` - 中文文档系统
+- `.claude/` - 增强功能和配置
+- `examples/` - 使用示例
+
+#### 第二步：启动 Claude Code
+
+在**任意项目目录**中打开终端（Windows 用户使用 Git Bash），然后运行：
 
 ```bash
 claude
 ```
 
-现在你可以用中文与 AI 对话，所有上下文和提示都已本地化。
+#### 第三步：开始中文对话
+
+现在你可以：
+- 用中文向 AI 描述需求
+- AI 会理解中文并回复中文
+- 所有技术术语都会保持准确
+
+#### 第四步：使用增强功能
+
+安装后可使用的特殊命令：
+
+```bash
+# 在 Claude Code 中输入这些斜杠命令：
+/full-context          # 全面分析项目上下文
+/code-review           # 多角度代码审查
+/gemini-consult        # 咨询 Gemini AI 获取建议
+/create-docs           # 创建项目文档
+/update-docs           # 更新现有文档
+/refactor              # 智能重构代码
+/mcp-status            # 检查扩展服务状态
+```
+
+### 💡 实际使用示例
+
+#### 示例1：创建新项目
+```bash
+# 1. 创建项目文件夹
+mkdir my-python-project
+cd my-python-project
+
+# 2. 启动 Claude Code
+claude
+
+# 3. 用中文对话：
+# "请帮我创建一个 Python 项目，包含用户认证功能和数据库操作"
+```
+
+#### 示例2：代码审查
+```bash
+# 在项目中启动 Claude Code
+claude
+
+# 输入命令：
+/code-review
+
+# AI 会自动分析所有代码并提供改进建议
+```
+
+#### 示例3：获取技术咨询
+```bash
+# 在 Claude Code 中：
+/gemini-consult
+
+# 然后描述你的问题：
+# "我正在设计一个电商系统，请帮我分析架构设计"
+```
 
 ### 2. 🎯 MCP 服务器功能
 
@@ -181,17 +295,64 @@ cp your-sound.mp3 .claude/hooks/sounds/input.mp3
 **使用方式：** 直接在 Claude Code 中输入斜杠命令  
 **自动功能：** 所有命令自动获得项目上下文注入
 
+## ❓ 常见问题解答
+
+### 🔧 Windows 用户常见问题
+
+#### Q: 为什么必须使用 Git Bash？
+**A:** Windows 的 CMD 和 PowerShell 不支持 Unix 风格的脚本。Git Bash 提供了完整的 Linux 兼容环境，可以正常运行安装脚本。
+
+#### Q: 安装成功后，为什么运行 `claude` 命令提示找不到？
+**A:** 这说明 Claude Code 没有正确安装或没有添加到系统 PATH。
+1. 重新安装 [Claude Code](https://github.com/anthropics/claude-code)
+2. 确保安装时选择了 "Add to PATH" 选项
+3. 重启终端后再试
+
+#### Q: 安装脚本运行时出现权限错误？
+**A:** 在 Git Bash 中运行：
+```bash
+chmod +x setup.sh
+./setup.sh
+```
+
+#### Q: 如何验证安装是否成功？
+**A:** 检查项目目录中是否出现这些文件：
+- `CLAUDE.md` 
+- `docs/` 文件夹
+- `.claude/` 文件夹
+- `examples/` 文件夹
+
+#### Q: 安装后没有看到中文化效果？
+**A:** 确保在安装了套件的项目目录中运行 `claude`，而不是在其他目录。
+
+### 💻 其他平台问题
+
+#### Q: macOS/Linux 出现 "command not found: curl"？
+**A:** 安装 curl：
+```bash
+# macOS
+brew install curl
+
+# Ubuntu/Debian  
+sudo apt-get install curl
+
+# CentOS/RHEL
+sudo yum install curl
+```
+
+#### Q: MCP 服务器无法连接？
+**A:** 检查网络连接和 API 密钥配置，运行 `/mcp-status` 查看状态。
+
 ## 💬 使用反馈
 
 ### 🐛 问题反馈
 **遇到问题？** [提交 Issue](https://github.com/cfrs2005/claude-init/issues)
 
-**常见问题类型：**
-- 安装失败或错误
-- MCP 服务器无法使用  
-- Hook 脚本不工作
-- 中文显示异常
-- 功能建议和改进
+**反馈时请包含：**
+- 操作系统版本
+- 错误信息截图
+- 安装方式（一键/手动）
+- 具体的操作步骤
 
 ### 💡 功能建议
 **想要新功能？** [发起讨论](https://github.com/cfrs2005/claude-init/discussions)

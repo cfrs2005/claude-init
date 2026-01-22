@@ -5,6 +5,33 @@
 格式基于[保持更新日志](https://keepachangelog.com/zh-CN/1.0.0/)，
 本项目遵循[语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [1.3.0] - 2026-01-22
+
+### 🚀 重大更新
+- **集成 Anthropic 黑客松冠军配置（汉化版）** - 融合 Anthropic x Forum Ventures 黑客松冠军 [@affaanmustafa](https://x.com/affaanmustafa) 与 [@DRodriguezFX](https://x.com/DRodriguezFX) 的完整配置
+  - 来源：[everything-claude-code](https://github.com/affaan-m/everything-claude-code)
+  - 完全汉化的生产级配置，经过 10 个月高强度开发迭代
+  - 凭借这套配置赢得 Anthropic 官方黑客马拉松冠军
+
+### ✨ 新增组件
+- **智能体 (Agents)** - 9 个专用子智能体（规划器、架构师、TDD 导师、代码审查员等）
+- **技能 (Skills)** - 工作流定义与领域知识（编码标准、后端模式、前端模式等）
+- **指令 (Commands)** - 10 个快捷斜杠指令（/tdd、/plan、/e2e、/code-review 等）
+- **规则 (Rules)** - 8 个强制性准则（安全、编码风格、测试、Git 工作流等）
+- **钩子 (Hooks)** - 基于触发器的自动化系统
+- **上下文 (Contexts)** - 开发、研究、审查三种上下文模式
+- **MCP 配置** - GitHub、Supabase、Vercel、Railway 等服务器配置示例
+
+### 📚 文档改进
+- **README 致谢更新** - 添加 Everything Claude Code 项目引用
+- **完整指南链接** - 包含原作者 X 文章和视频链接
+
+### 🎯 核心概念
+- **上下文窗口管理** - 配置 20-30 个 MCP，每个项目保持启用少于 10 个
+- **模块化设计** - 按需复制，针对技术栈定制
+
+---
+
 ## [1.2.8] - 2025-10-21
 
 ### ✨ 新增功能

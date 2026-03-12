@@ -1,4 +1,4 @@
-# Claude Code 中文开发套件
+# Claude Code 项目初始化模板
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Language: 中文](https://img.shields.io/badge/Language-%E4%B8%AD%E6%96%87-red.svg)](README.md)
@@ -8,28 +8,42 @@
 [![Forks](https://img.shields.io/github/forks/cfrs2005/claude-init)](https://github.com/cfrs2005/claude-init/network/members)
 [![Issues](https://img.shields.io/github/issues/cfrs2005/claude-init)](https://github.com/cfrs2005/claude-init/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey)](README.md)
-[![Claude Code](https://img.shields.io/badge/Compatible-Claude%20Code-blue)](https://github.com/anthropics/claude-code)
-[![MCP](https://img.shields.io/badge/Support-MCP%20Servers-green)](README.md#mcp-服务器支持)
+[![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux-lightgrey)](README.md)
+[![Claude Code](https://img.shields.io/badge/Reference-Claude%20Code-blue)](https://github.com/anthropics/claude-code)
 
 <div align="center">
 
-🚀 **为中国开发者定制的 Claude Code 智能开发环境**
+⚠️ **项目归档说明：仅供学习参考**
 
-[快速开始](#-快速开始) • [功能特性](#-特性) • [使用指南](#-使用指南) • [使用反馈](#-使用反馈) • [更新日志](CHANGELOG.md)
+[项目背景](#-项目背景) • [功能特性](#-特性) • [使用指南](#-使用指南) • [注意事项](#-important-注意事项) • [更新日志](CHANGELOG.md)
 
 ---
-
-
-🚀 **新增智谱AI引擎**: 最新集成了 **[智谱大模型 (BigModel.cn)](https://www.bigmodel.cn/claude-code?ic=H0RNPV3LNZ)**。其旗舰 **GLM-4.5** 模型拥有媲美 Claude 的代码能力，并提供极具吸引力的包月服务，是入门和高频使用的绝佳选择。 **[点此注册即领2000万免费Tokens →](https://www.bigmodel.cn/claude-code?ic=H0RNPV3LNZ)**
 
 </div>
 
-基于 [Claude Code Development Kit](https://github.com/peterkrueck/Claude-Code-Development-Kit) 的完整中文本地化版本，提供零门槛的中文 AI 编程体验。
+> **📅 项目时间：** 2025年07月  
+> **🎯 项目定位：** Claude Code 项目初始化工具（**非 Claude 汉化项目**）  
+> **⚠️ 当前状态：** Claude Code 版本快速迭代，本项目仅作为学习参考
+
+## 📋 项目背景
+
+本项目创建于 2025年07月，当时 Claude Code 在国内开发社区刚刚兴起。作为一个项目初始化工具，旨在帮助开发者快速搭建基于 Claude Code 的开发环境。
+
+**⚠️ 重要说明：**
+- 本项目 **不是** Claude Code 的汉化版本
+- 本项目 **不是** Claude Code 的官方替代品
+- Claude Code 官方版本更新频繁，本项目配置可能已过时
+- 建议直接使用 [Claude Code 官方版本](https://github.com/anthropics/claude-code) 并参考[官方中文文档](https://docs.anthropic.com/zh-CN/docs/claude-code)
+
+### 支持平台
+
+- ✅ **macOS** - 完全支持
+- ✅ **Linux** - 完全支持  
+- ❌ **Windows** - **不支持**（作者无 Windows 环境，无法测试和维护）
 
 ---
 
-## 🏆 v1.3.0 重磅更新：集成 Anthropic 黑客松冠军配置（汉化版）
+## 🏆 v1.3.0 版本：集成 Anthropic 黑客松冠军配置
 
 <div align="center">
 
@@ -129,11 +143,11 @@ templates/.claude/
 
 ## ✨ 特性
 
-### 🎯 完全中文化
-- **中文 AI 指令** - 所有 AI 上下文和提示完全中文化
-- **中文文档系统** - 三层文档架构的中文版本
-- **中文错误信息** - 友好的中文错误提示和帮助
-- **中文安装体验** - 从安装到配置全程中文
+### 🎯 项目初始化模板
+- **快速启动** - 预配置的项目结构和开发环境
+- **中文文档** - 项目初始化相关的中文说明文档
+- **配置示例** - 常用开发场景的配置文件模板
+- **学习参考** - Claude Code 配置和最佳实践的学习案例
 
 ### 🧠 智能上下文管理
 - **三层文档架构** - 基础层/组件层/功能层分级管理
@@ -156,38 +170,62 @@ templates/.claude/
 
 ## 🚀 快速开始
 
-### 一键安装
+### 推荐方式：使用官方 Claude Code
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/cfrs2005/claude-init/main/install.sh | bash
+**强烈建议**直接使用官方最新版本：
+
+1. **安装 Claude Code**
+   ```bash
+   # 访问官方文档获取最新安装方法
+   https://docs.anthropic.com/zh-CN/docs/claude-code
+   ```
+
+2. **参考本项目配置**
+   ```bash
+   # 克隆本仓库作为参考
+   git clone https://github.com/cfrs2005/claude-init.git
+   cd claude-init
+   
+   # 查看配置文件，根据需要调整你的 Claude Code 设置
+   ls templates/.claude/
+   ```
+
+### 使用本项目的配置模板
+
+如果你想参考本项目的配置：
+
+### 1. 配置文件说明
+
+本项目的配置文件位于 `templates/.claude/` 目录：
+
+```
+templates/.claude/
+├── agents/           # 智能体配置示例
+├── skills/           # 技能配置示例  
+├── commands/         # 命令配置示例
+├── rules/            # 规则配置示例
+├── hooks/            # 钩子脚本示例
+├── contexts/         # 上下文配置示例
+└── mcp-configs/      # MCP 服务器配置示例
 ```
 
-### 手动安装
+### 2. 参考使用
 
 ```bash
-# 克隆仓库
-git clone https://github.com/cfrs2005/claude-init.git
-cd claude-init
+# 查看感兴趣的配置文件
+cat templates/.claude/agents/planner.md
 
-# 运行安装脚本
-./setup.sh
+# 复制有用的配置到你的 Claude Code 目录
+cp templates/.claude/agents/planner.md ~/.claude/agents/
 ```
 
-## 📖 使用指南
+## 📖 学习参考
 
-### 1. 开始使用
-
-安装完成后，在任意项目中启动 Claude Code：
-
-```bash
-claude
-```
-
-现在你可以用中文与 AI 对话，所有上下文和提示都已本地化。
-
-### 2. 🎯 MCP 服务器功能
+### 1. 🎯 MCP 服务器功能
 
 #### 🧠 Gemini 深度咨询
+> **注意：** 以下功能配置仅供参考，可能需要根据最新 Claude Code 版本调整
+
 **触发方式：** 对 Claude 说"咨询 Gemini" 或 "请 Gemini 分析"
 **适用场景：**
 - 复杂架构设计问题
@@ -195,66 +233,38 @@ claude
 - 多文件代码重构方案
 - 深度技术问题分析
 
-**发送内容：**
-- 描述你的具体问题
-- 附上相关代码文件
-- 说明你想要什么类型的建议
-
-**Gemini 能做什么：**
-- 提供多种解决方案对比
-- 深度代码审查和优化建议
-- 架构设计最佳实践
-- 跨技术栈的经验分享
-
 #### 📚 Context7 文档查询  
+> **注意：** 以下功能配置仅供参考，可能需要根据最新 Claude Code 版本调整
+
 **触发方式：** 询问任何开源库的最新用法
 **适用场景：**
 - 学习新框架或库
 - 查找最新 API 文档
 - 解决版本兼容问题
 
-**发送内容：**
-- 说出库名称（如 "React 的最新 hooks 用法"）
-- 描述你想解决的具体问题
-
-**Context7 能做什么：**
-- 获取最新官方文档
-- 提供实用代码示例
-- 解释最新特性和变化
-
-### 3. 💡 增强功能
+### 2. 💡 增强功能
 
 #### 🎵 自定义通知音效
+> **配置参考：** 钩子脚本配置示例
+
 **默认路径：** `.claude/hooks/sounds/`
 **支持格式：** `.mp3`, `.wav`, `.aiff`
 
-**替换方式：**
-```bash
-# 替换任务完成音效
-cp your-sound.mp3 .claude/hooks/sounds/complete.mp3
-
-# 替换输入提示音效  
-cp your-sound.mp3 .claude/hooks/sounds/input.mp3
-```
-
 #### 🔒 安全扫描
-**自动功能：** 所有 MCP 调用前自动检查敏感信息
-**检查内容：**
-- API 密钥和令牌
-- 密码和敏感配置
-- 个人身份信息
-- 私有代码片段
+> **配置参考：** 安全检查钩子示例
+
+**功能：** MCP 调用前自动检查敏感信息
 
 #### 🤖 智能上下文管理
-**自动功能：** 子任务自动获取项目上下文
-**工作方式：**
-- 每个新任务自动加载项目文档
-- 智能选择相关上下文信息
-- 保持会话间状态一致性
+> **配置参考：** 上下文管理配置示例
 
-### 4. 🎯 Claude Code 斜杠命令
+**功能：** 子任务自动获取项目上下文
 
-安装后可使用的内置 Claude Code 命令：
+### 3. 🎯 Claude Code 斜杠命令
+
+> **配置参考：** 命令配置文件示例
+
+以下为本项目包含的命令配置示例：
 
 ```bash
 # 📊 上下文分析
@@ -262,9 +272,6 @@ cp your-sound.mp3 .claude/hooks/sounds/input.mp3
 
 # 🔍 代码质量
 /code-review               # 多专家角度代码审查
-
-# 🧠 AI 咨询
-/gemini-consult            # 与 Gemini 深入对话咨询
 
 # 📝 文档管理
 /create-docs               # 创建 AI 优化文档结构
@@ -275,44 +282,27 @@ cp your-sound.mp3 .claude/hooks/sounds/input.mp3
 
 # 🤝 会话管理
 /handoff                   # 保留上下文和任务状态
-
-# 📡 MCP 工具
-/mcp-status                # 检查 MCP 服务器状态
 ```
 
-**使用方式：** 直接在 Claude Code 中输入斜杠命令
-**自动功能：** 所有命令自动获得项目上下文注入
+**注意：** 具体可用命令请参考官方最新文档
 
-### 5. 🎯 Skills 模块化能力扩展
+### 4. 🎯 Skills 模块化能力扩展
+
+> **配置参考：** Skills 配置文件示例
 
 **什么是 Skills？** Skills 是 [Claude Code 云服务](https://www.anthropic.com/news/claude-code-on-the-web)的强大功能，让你创建可复用的能力模块。
 
-**核心特性：**
-- 📦 **自动调用** - Claude 根据需求智能选择合适的 skill
-- 🎯 **渐进加载** - 只在需要时加载，节省上下文空间
-- 🔧 **易于创建** - 简单的 Markdown + YAML 格式
-- 🌍 **灵活部署** - 全局或项目级别安装
-
-**内置 Skills：**
-- 📰 **News Skill** - Anthropic 新闻追踪和深度分析
-  - 自动获取最新官方新闻
-  - 多维度分析（技术、商业、行业）
-  - 结构化知识整理
-
-**使用示例：**
-```
-你：分析最新的 Anthropic 新闻
-Claude：[自动使用 news skill 获取和分析]
-```
+**本项目包含的 Skills 示例：**
+- 📰 **News Skill** - 新闻追踪和深度分析示例
 
 **详细文档：** 查看 `templates/.claude/skills/README.md`
 **了解更多：** [Claude Code 云服务介绍](https://www.anthropic.com/news/claude-code-on-the-web)
 
-### 6. 📦 项目示例库
+### 5. 📦 项目示例库
 
-提供完整的项目模板，快速启动开发：
+> **学习参考：** 项目结构配置示例
 
-**可用示例：**
+本项目包含以下项目模板示例：
 
 #### 🐍 Python 项目
 - FastAPI Web 应用结构
@@ -329,40 +319,65 @@ Claude：[自动使用 news skill 获取和分析]
 - 移动端适配
 - 部署和运维配置
 
-**快速开始：**
+**参考方式：**
 ```bash
-# 复制示例项目
-cp -r examples/python-project my-new-project
-cd my-new-project
+# 查看示例项目
+ls examples/
 
-# 开始使用
-claude
+# 参考项目结构和配置
+cat examples/python-project/README.md
 ```
 
 **详细文档：** 查看 `examples/README.md`
 
+## ⚠️ Important 注意事项
+
+### 版本兼容性
+- Claude Code 官方版本更新频繁，API 和配置可能发生变化
+- 本项目的配置文件可能需要根据最新版本进行调整
+- 建议始终参考 [官方文档](https://docs.anthropic.com/zh-CN/docs/claude-code) 获取最新信息
+
+### 平台支持
+- ✅ **macOS** - 完全支持
+- ✅ **Linux** - 完全支持  
+- ❌ **Windows** - **不支持**（作者无 Windows 环境，无法提供支持）
+
+### 项目定位
+- 本项目是 **学习参考** 项目，不是官方产品
+- 本项目 **不是** Claude Code 的汉化版本
+- 本项目提供配置文件示例和最佳实践参考
+- 遇到问题请首先查阅 [官方文档](https://docs.anthropic.com/zh-CN/docs/claude-code)
+
+### 学习资源
+**官方推荐学习路径：**
+1. 📖 [Claude Code 官方文档](https://docs.anthropic.com/zh-CN/docs/claude-code) - 完整的中文使用指南
+2. 🚀 [Claude Code GitHub 仓库](https://github.com/anthropics/claude-code) - 最新版本和更新
+3. 💡 [官方示例和最佳实践](https://docs.anthropic.com/zh-CN/docs/claude-code/examples) - 官方推荐用法
+
 ## 💬 使用反馈
 
 ### 🐛 问题反馈
-**遇到问题？** [提交 Issue](https://github.com/cfrs2005/claude-init/issues)
+**遇到问题？** 
 
-**常见问题类型：**
-- 安装失败或错误
-- MCP 服务器无法使用  
-- Hook 脚本不工作
-- 中文显示异常
-- 功能建议和改进
+1. **首先查阅官方文档** - 大部分问题都能在官方文档中找到解决方案
+2. **检查版本兼容性** - 确认你使用的 Claude Code 版本与配置文件匹配
+3. **搜索已有 Issues** - 查看是否有类似问题已经被讨论
+4. **提交新 Issue** - 如果以上都没有解决，可以 [提交 Issue](https://github.com/cfrs2005/claude-init/issues)
+
+**Issue 提示：**
+- 详细描述问题和复现步骤
+- 说明你的操作系统和 Claude Code 版本
+- 提供相关的错误信息和配置文件
 
 ### 💡 功能建议
-**想要新功能？** [发起讨论](https://github.com/cfrs2005/claude-init/discussions)
+**想要新功能？** 
 
-**建议包含：**
-- 功能描述和使用场景
-- 期望的工作方式
-- 类似工具的参考
+1. **先确认是否为官方功能** - 查看官方文档确认是否已是内置功能
+2. **发起讨论** - 在 [Discussions](https://github.com/cfrs2005/claude-init/discussions) 中讨论想法
+3. **提交 PR** - 如果你是配置改进，欢迎提交 Pull Request
 
 ### 🤝 参与贡献
-欢迎提交代码、文档改进和翻译优化！
+欢迎提交配置改进、文档修正和示例优化！
 
 ## 📄 开源协议
 
@@ -370,17 +385,21 @@ claude
 
 ## 🙏 致谢
 
-- [Claude Code Development Kit](https://github.com/peterkrueck/Claude-Code-Development-Kit) - 原始项目
-- [Everything Claude Code](https://github.com/affaan-m/everything-claude-code) - Anthropic 黑客松优胜者 [@affaanmustafa](https://x.com/affaanmustafa) 的完整配置合集
-- [Anthropic](https://www.anthropic.com/) - Claude Code 平台
-- 所有贡献者和中文开发社区
+- [Claude Code Development Kit](https://github.com/peterkrueck/Claude-Code-Development-Kit) - 原始项目灵感来源
+- [Everything Claude Code](https://github.com/affaan-m/everything-claude-code) - Anthropic 黑客松优胜者配置参考
+- [Anthropic](https://www.anthropic.com/) - Claude Code 官方平台
+- 所有贡献者和开发社区
 
-> 📦 **v1.3.0 新增**：集成 [Everything Claude Code](https://github.com/affaan-m/everything-claude-code) 汉化版配置，包含生产级智能体 (Agents)、技能 (Skills)、钩子 (Hooks)、指令 (Commands)、规则 (Rules) 和 MCP 配置。详见 [`templates/.claude/`](templates/.claude/) 目录。
+> 💡 **推荐学习资源**：
+> - 📖 [Claude Code 官方中文文档](https://docs.anthropic.com/zh-CN/docs/claude-code)
+> - 🚀 [Claude Code 官方 GitHub](https://github.com/anthropics/claude-code)
+> - 💡 [官方示例和最佳实践](https://docs.anthropic.com/zh-CN/docs/claude-code/examples)
 
 ---
 
-🎉 **开始你的中文 AI 编程之旅吧！**
+🎓 **本项目仅供学习参考，建议使用官方最新版本！**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/cfrs2005/claude-init/main/install.sh | bash
+# 访问官方文档开始使用
+https://docs.anthropic.com/zh-CN/docs/claude-code
 ```
